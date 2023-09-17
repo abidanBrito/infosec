@@ -1,0 +1,15 @@
+version: '2.0'
+
+services:
+    db:
+        build: db/.
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_USER: db_user
+          MYSQL_PASSWORD: Super_Secure_INFOSEC22_!?
+    www:
+        build: www/.
+        restart: always
+        ports:
+          - "8090:8080"

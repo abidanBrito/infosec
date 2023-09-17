@@ -1,0 +1,48 @@
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{{ url_for('index') }}" class="logo">
+                        <img src="/static/assets/images/logo.png" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('deals') }}">Deals</a></li>
+                        <li><a href="{{ url_for('reservation') }}">Reservation</a></li>
+                        <li><a href="{{ url_for('reservation') }}">Book Yours</a></li>
+                        {% if logged_in_user %}
+                        <form id="logout-form" action="/logout" method="post">
+                            <li>
+                                <div id="logout-button">
+                                    <a class="link-color-black" href="#">
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+                        </form>
+                        {% else %}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script nonce="{{ csp_nonce() }}">
+    document.getElementById('logout-button')
+        .addEventListener('click', function (event) {
+            var form = document.getElementById("logout-form");
+            form.submit();
+        });
+</script>
