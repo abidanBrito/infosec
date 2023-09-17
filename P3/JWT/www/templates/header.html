@@ -1,0 +1,43 @@
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{{ url_for('index') }}" class="logo">
+                        <img src="{{ url_for('static', filename='assets/images/logo.png') }}">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="scroll-to-section"><a href="#men">Men's</a></li>
+                        <li class="scroll-to-section"><a href="#women">Women's</a></li>
+                        <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
+                        <li class="submenu">
+                            <a href="javascript:;">Details</a>
+                            <ul>
+                                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                                <li><a href="{{ url_for('products') }}">Products</a></li>
+                                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="{{ url_for('index') }}">Explore</a></li>
+                        {% if user %}
+                        <li class="scroll-to-section"><a href="#">Welcome, {{user}}</a></li>
+                        {% else %}
+                        <li class="scroll-to-section"><a href="{{ url_for('login') }}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!--
+{{ pubkey }}
+-->
