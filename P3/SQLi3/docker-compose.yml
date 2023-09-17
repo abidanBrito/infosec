@@ -1,0 +1,19 @@
+version: '2.0'
+
+services:
+
+    db:
+        build: db/.
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_USER: db_user
+            MYSQL_PASSWORD: Super_Secure_INFOSEC21_!?
+        volumes:
+          - ./db_conf:/etc/mysql/conf.d
+          - ./flag:/flag
+    www:
+        build: www/.
+        restart: always
+        ports:
+          - "8082:8080"
