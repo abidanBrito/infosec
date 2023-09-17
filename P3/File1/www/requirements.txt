@@ -1,0 +1,6 @@
+flask
+flask-mysqldb
+mysql-connector-python
+pycryptodomex
+mysqlclient==1.3.14
+flask-talisman

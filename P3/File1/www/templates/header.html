@@ -1,0 +1,49 @@
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{{ url_for('index') }}" class="logo">
+                        <img nonce="{{ csp_nonce() }}" src="{{ url_for('static', filename='assets/images/logo.png') }}"
+                            alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('explore') }}">Explore</a></li>
+                        <li><a href="{{ url_for('details') }}">Item Details</a></li>
+                        <li><a href="{{ url_for('author') }}">Author</a></li>
+                        {% if logged_in_user %}
+                        <li><a href="{{ url_for('create') }}">Create Yours</a></li>
+                        <form id="logout-form" action="/logout" method="post">
+                            <li>
+                                <div id="logout-button">
+                                    <a class="link-color-black" href="#">
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+                        </form>
+                        {% else %}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script nonce="{{ csp_nonce() }}">
+    document.getElementById('logout-button')
+        .addEventListener('click', function (event) {
+            var form = document.getElementById("logout-form");
+            form.submit();
+        });
+</script>
