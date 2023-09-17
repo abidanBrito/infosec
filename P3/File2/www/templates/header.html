@@ -1,0 +1,44 @@
+<div class="templatemo-sidebar">
+  <header class="templatemo-site-header">
+    <div class="square"></div>
+    <h1>Visual Admin</h1>
+  </header>
+  <div class="profile-photo-container">
+    <img src="{{ url_for('static', filename='images/profile-photo.jpg') }}" alt="Profile Photo" class="img-responsive">
+    <div class="profile-photo-overlay"></div>
+  </div>
+  <!-- Search box -->
+  <form class="templatemo-search-form" role="search">
+    <div class="input-group">
+      <button type="submit" class="fa fa-search"></button>
+      <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+    </div>
+  </form>
+  <div class="mobile-menu-icon">
+    <i class="fa fa-bars"></i>
+  </div>
+  <nav class="templatemo-left-nav">
+    <ul>
+      <li><a href="{{ url_for('index') }}"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
+      <li><a href="{{ url_for('manage_users') }}"><i class="fa fa-users fa-fw"></i>Manage Users</a></li>
+      {% if logged_in_user %}
+      <form id="logout-form" action="/logout" method="post">
+        <li>
+          <div id="logout-button">
+            <a class="link-color-white" href="#">
+              <i class="fa fa-eject fa-fw"></i>Sign Out
+            </a>
+          </div>
+        </li>
+      </form>
+      {% endif %}
+    </ul>
+  </nav>
+</div>
+<script nonce="{{ csp_nonce() }}">
+  document.getElementById('logout-button')
+    .addEventListener('click', function (event) {
+      var form = document.getElementById("logout-form");
+      form.submit();
+    });
+</script>
