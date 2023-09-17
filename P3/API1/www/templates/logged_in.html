@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+	<!-- templatemo 418 form pack -->
+    <!-- 
+    Form Pack
+    http://www.templatemo.com/preview/templatemo_418_form_pack 
+    -->
+	<title>INFOSEC WS 2022/23</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/static/css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body class="templatemo-bg-image-2">
+	<div class="container">
+		<div class="col-md-12">			
+			<div class="form-horizontal templatemo-contact-form-1">
+			  <div class="form-group">
+				  <div class="col-md-12">
+					  <h1 class="margin-bottom-15">INFOSEC WS 2022/23: API1</h1>
+				  </div>
+			  </div>
+			  <form action="/logout" method="post">
+          <div class="form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Logout" class="is-custom-btn btn btn-success pull-right">
+              <input type="hidden" value="$csrf_token" name="csrf_token"></input>
+            </div>
+          </div>
+        </form>
+      </div>
+			<div class="form-horizontal templatemo-contact-form-1">
+			  <div class="form-group">
+				  <div class="col-md-12">
+					  <h1 class="margin-bottom-15">Hello $user!</h1>
+				  </div>
+			  </div>				
+        <div class="form-group">
+          <div class="col-md-12">		          	
+            <h2 class="control-label pull-left">Flag:</h2>          
+          </div>
+          <div class="col-md-12">		          	
+            <p>$flag</p>
+          </div>
+          <div class="col-md-12">		          	
+            <p>$code</p>
+          </div> 
+        </div>
+      </div>
+		</div>
+	</div>
+</body>
+</html>
